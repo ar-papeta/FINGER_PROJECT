@@ -22,7 +22,8 @@ void ESP_WebServer_setup(void) {
   
   // Connect to WiFi network
   if (isSelfConnect == '1') {
-    WiFi.mode(WIFI_AP);
+    //WIFI_AP_STA
+    WiFi.mode(WIFI_AP_STA);
     WiFi.softAP(self_ssid, self_password);
     Serial.println("");
     Serial.print("Connected to self SSID: ");
@@ -30,6 +31,7 @@ void ESP_WebServer_setup(void) {
     Serial.print("IP address: ");
     Serial.println(WiFi.softAPIP());
   } else if (isWiFiSTAConnect == '1') {
+    WiFi.mode(WIFI_STA);
     WiFi.begin(wifi_SSID, wifi_password);
     while (WiFi.status() != WL_CONNECTED) {
       delay(500);
@@ -65,6 +67,7 @@ void ESP_WebServer_setup(void) {
           Serial.println("Something wrong with WiFi. 15 connection attempts faild");
           break;
         }
+        
       }
       if(tryCount < 15){
         isSelfConnect = '0';
@@ -76,6 +79,7 @@ void ESP_WebServer_setup(void) {
         EEPROM_Write(wifi_password, EEPROM_SIZE_PASSWORD, PASSWORD_START_ADDR);
         server.sendHeader("Connection", "close");  
         server.send(200, "text/html", HomePage);
+        ESP.restart();
       }
       else {
         WiFi.mode(WIFI_AP);

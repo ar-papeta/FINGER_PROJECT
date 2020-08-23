@@ -15,7 +15,8 @@ Adafruit_Fingerprint finger_OUT = Adafruit_Fingerprint(&Serial2);
 //char* password = "524room524";
 //char* ssid = "Tytul";
 //char* password = "22559988";
-//char *initValue = "1";
+char *initValue_SELF = "1";
+char *initValue_WIFI = "0";
 
 void setup() {
   
@@ -26,7 +27,8 @@ void setup() {
   Fingerprint_init();
   EEPROM_init();
   delay(100);
-  //EEPROM_Write(initValue, 1, EEPROM_SELF_CONN_FLAG_ADDR);
+  //EEPROM_Write(initValue_SELF, 1, EEPROM_SELF_CONN_FLAG_ADDR);
+  //EEPROM_Write(initValue_WIFI, 1, EEPROM_EX_WIFI_FLAG_ADDR);
   ESP_WebServer_setup();
 
 }
