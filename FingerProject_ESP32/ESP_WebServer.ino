@@ -115,12 +115,24 @@ void ESP_WebServer_setup(void) {
     server.sendHeader("Connection", "close");  
     server.send(200, "text/html", AddUserPage);
   });
+  server.on("/addUser", HTTP_POST, []() {
+    if (server.hasArg("usrId") && server.hasArg("usrName") && server.hasArg("usrStatus") && server.hasArg("usrKey")){
+      int userId = -1;
+      sscanf(server.arg("usrId").c_str(), "%d", &userId); 
+      addFinger(&finger_OUT, (uint8_t)userId);
+    }
+    else{
+      Serial.println("Something wrong with reques for add finger");
+      }
+    server.sendHeader("Connection", "close");  
+    server.send(200, "text/html", "<h1>Page with instruction for adding!!!<\h1>");
+  });
 
 
   
-  server.on("/serverIndex", HTTP_GET, []() {
+  server.on("/OTAUpdate", HTTP_GET, []() {
     server.sendHeader("Connection", "close");  
-    server.send(200, "text/html", HomePage);
+    server.send(200, "text/html", OTAUpdatePage);
   });
   /*handling uploading firmware file */
   server.on(

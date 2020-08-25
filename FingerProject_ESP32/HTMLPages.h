@@ -2,8 +2,7 @@
 #define HTML_PAGES
 
 extern char* RegPage;
-extern char* serverIndex;
-extern char* loginIndex;
+extern char* OTAUpdatePage;
 extern char* HomePage;
 extern char* AddUserPage;
 

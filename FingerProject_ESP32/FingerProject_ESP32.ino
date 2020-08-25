@@ -24,7 +24,8 @@ void setup() {
   //Serial1.begin(57600,SERIAL_8N1, 2, 4); //Baud rate, parity mode, RX, TX
   Serial2.begin(57600);
   
-  Fingerprint_init();
+  FingerSensor_init(&finger_IN);
+  FingerSensor_init(&finger_OUT);
   EEPROM_init();
   delay(100);
   //EEPROM_Write(initValue_SELF, 1, EEPROM_SELF_CONN_FLAG_ADDR);
@@ -37,6 +38,6 @@ void loop() {
   
   server.handleClient();
   //checkFinger(&finger_IN);
-  //Serial.println(checkFinger(&finger_OUT));
+  Serial.println(checkFinger(&finger_OUT));
   
 }

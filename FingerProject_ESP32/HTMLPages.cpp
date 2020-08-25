@@ -1,23 +1,8 @@
 #include "HTMLPages.h"
 
-/* Login page */
-char* loginIndex =
-"<form name=loginForm>"
-"<h1>ESP32 Login</h1>"
-"<input name=userid placeholder='User ID'> "
-"<input name=pwd placeholder=Password type=Password> "
-"<input type=submit onclick=check(this.form) class=btn value=Login></form>"
-"<script>"
-"function check(form) {"
-"if(form.userid.value=='admin' && form.pwd.value=='admin')"
-"{window.open('/serverIndex')}"
-"else"
-"{alert('Error Password or Username')}"
-"}"
-"</script>";
 
 /* Server Index Page */
-char* serverIndex =
+char* OTAUpdatePage =
 "<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>"
 "<form method='POST' action='#' enctype='multipart/form-data' id='upload_form'>"
 "<input type='file' name='update' id='file' onchange='sub(this)' style=display:none>"
@@ -198,7 +183,7 @@ char* HomePage =
 "<div class = 'container'>"
 "    <h1>Main menu</h1>"
 "<form action='/addUser' method='get'>"
-"    <button class='button'><span>Add user </span></button>"
+"    <button class='button'><span>Add user</span></button>"
 "</form>"
 "    <hr>"
 "    <button class='button'><span>Delete user </span></button>"
@@ -275,7 +260,7 @@ char* AddUserPage =
 "    <p>Please fill in this form to sign up new user</p>"
 "    <hr>"
 "    <label for='userId'><b>Enter User id</b></label>"
-"    <input type='text' placeholder='User id' name='usrEnter' required>"
+"    <input type='text' placeholder='User id' name='usrId' required>"
 "    <label for='name'><b>Enter User Name</b></label>"
 "    <input type='text' placeholder='User Name' name='usrName' required>"
 "    <label for='status'><b>Enter User status</b></label>"

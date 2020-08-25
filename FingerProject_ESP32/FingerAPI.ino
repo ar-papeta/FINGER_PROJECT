@@ -1,26 +1,14 @@
-void Fingerprint_init() {
-
+void FingerSensor_init(Adafruit_Fingerprint *f_Sensor) {
   // set the data rate for the sensor serial port
-  finger_IN.begin(57600);
-  finger_OUT.begin(57600);
-
-  if (finger_IN.verifyPassword()) 
+  f_Sensor->begin(57600);
+  if (f_Sensor->verifyPassword()) 
   {
-    Serial.println("Found fingerprint INPUT sensor!");
+    Serial.println("Found fingerprint sensor!");
   } 
   else 
   {
-    Serial.println("Did not find INPUT fingerprint sensor :(");
-  }
-
-  if (finger_OUT.verifyPassword()) 
-  {
-    Serial.println("Found fingerprint OUTPUT sensor!");
+    Serial.println("Did not find fingerprint sensor :(");
   } 
-  else 
-  {
-    Serial.println("Did not find OUTPUT fingerprint sensor :(");
-  }
 }
 
 
@@ -48,7 +36,7 @@ int checkFinger(Adafruit_Fingerprint *f_Sensor) {
 
 
 bool addFinger(Adafruit_Fingerprint *f_Sensor, uint8_t id) {
-  /*TO DO add log info transmit to server*/
+  /*TO DO add log info transmit to server !!!and timout for while operations!!!*/
   int f_status = -1;
   while (f_status != FINGERPRINT_OK) {
     f_status = f_Sensor->getImage();
