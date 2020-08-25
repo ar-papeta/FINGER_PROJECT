@@ -109,6 +109,15 @@ void ESP_WebServer_setup(void) {
     }
       
   });
+
+
+  server.on("/addUser", HTTP_GET, []() {
+    server.sendHeader("Connection", "close");  
+    server.send(200, "text/html", AddUserPage);
+  });
+
+
+  
   server.on("/serverIndex", HTTP_GET, []() {
     server.sendHeader("Connection", "close");  
     server.send(200, "text/html", HomePage);
