@@ -374,6 +374,7 @@ F:\FINGER_PROJECT\FINGER_PROJECT\AccessControlWebApp\bin\Debug\netcoreapp3.1\run
 F:\FINGER_PROJECT\FINGER_PROJECT\AccessControlWebApp\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 F:\FINGER_PROJECT\FINGER_PROJECT\AccessControlWebApp\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 F:\FINGER_PROJECT\FINGER_PROJECT\AccessControlWebApp\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+F:\FINGER_PROJECT\FINGER_PROJECT\AccessControlWebApp\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
 F:\FINGER_PROJECT\FINGER_PROJECT\AccessControlWebApp\obj\Debug\netcoreapp3.1\AccessControlWebApp.csproj.CoreCompileInputs.cache
 F:\FINGER_PROJECT\FINGER_PROJECT\AccessControlWebApp\obj\Debug\netcoreapp3.1\AccessControlWebApp.MvcApplicationPartsAssemblyInfo.cs
 F:\FINGER_PROJECT\FINGER_PROJECT\AccessControlWebApp\obj\Debug\netcoreapp3.1\AccessControlWebApp.MvcApplicationPartsAssemblyInfo.cache

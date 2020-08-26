@@ -31,11 +31,20 @@ void ESP_WebServer_setup(void) {
     Serial.print("IP address: ");
     Serial.println(WiFi.softAPIP());
   } else if (isWiFiSTAConnect == '1') {
+    int tryCount = 0;
     WiFi.mode(WIFI_STA);
     WiFi.begin(wifi_SSID, wifi_password);
     while (WiFi.status() != WL_CONNECTED) {
       delay(500);
       Serial.print(".");
+      if(tryCount == 15){
+          Serial.println("Something wrong with WiFi. 15 connection attempts faild");
+          break;
+      }
+      else{
+        Serial.println("IP address: ");  //  "IP-адрес: "
+        Serial.println(WiFi.localIP());
+      }
     }
   }
 
