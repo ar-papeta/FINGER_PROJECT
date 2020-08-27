@@ -166,3 +166,25 @@ bool addFinger(Adafruit_Fingerprint *f_Sensor, uint8_t id) {
     return false;
   }
 }
+
+bool deleteFinger(Adafruit_Fingerprint *f_Sensor, uint8_t id) {
+  uint8_t f_status = -1;
+  f_status = f_Sensor->deleteModel(id);
+
+  if (f_status == FINGERPRINT_OK) {
+    Serial.print("FINGERPRINT SENSOR: User with ID "); Serial.print(id); Serial.println(" removed");
+    return true;
+  } else if (f_status == FINGERPRINT_PACKETRECIEVEERR) {
+    //Serial.println("Communication error");
+    return false;
+  } else if (f_status == FINGERPRINT_BADLOCATION) {
+    Serial.println("Could not delete in that location");
+    return false;
+  } else if (f_status == FINGERPRINT_FLASHERR) {
+    Serial.println("Error writing to flash");
+    return false;;
+  } else {
+    Serial.print("Unknown error: 0x"); Serial.println(f_status, HEX);
+    return false;
+  }
+}

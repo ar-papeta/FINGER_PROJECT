@@ -119,12 +119,14 @@ void ESP_WebServer_setup(void) {
       
   });
 
-
+                    /*ADD USER BLOCK*/
   server.on("/addUser", HTTP_GET, []() {
     server.sendHeader("Connection", "close");  
     server.send(200, "text/html", AddUserPage);
   });
   server.on("/addUser", HTTP_POST, []() {
+    server.sendHeader("Connection", "close");  
+    server.send(200, "text/html", "<h1>Page with instruction for adding!!!<\h1>");
     if (server.hasArg("usrId") && server.hasArg("usrName") && server.hasArg("usrStatus") && server.hasArg("usrKey")){
       int userId = -1;
       sscanf(server.arg("usrId").c_str(), "%d", &userId); 
@@ -133,12 +135,31 @@ void ESP_WebServer_setup(void) {
     else{
       Serial.println("Something wrong with reques for add finger");
       }
-    server.sendHeader("Connection", "close");  
-    server.send(200, "text/html", "<h1>Page with instruction for adding!!!<\h1>");
   });
 
 
-  
+
+                                      /*DELETE USER BLOCK*/
+  server.on("/deleteUser", HTTP_GET, []() {
+    server.sendHeader("Connection", "close");  
+    server.send(200, "text/html", DeleteUserPage);
+  });
+  server.on("/deleteUser", HTTP_POST, []() {
+    server.sendHeader("Connection", "close");  
+    server.send(200, "text/html", "<h1>Page with instruction for delete!!!<\h1>");
+    Serial.println(server.arg("delUsrId"));
+    if (server.hasArg("delUsrId")){
+      int userId = -1;
+      sscanf(server.arg("delUsrId").c_str(), "%d", &userId);
+      deleteFinger(&finger_OUT, (uint8_t)userId);
+    }
+    else{
+      Serial.println("Something wrong with reques for delete finger");
+      }
+  });
+
+
+                                    /*OTA UPDATE USER BLOCK*/
   server.on("/OTAUpdate", HTTP_GET, []() {
     server.sendHeader("Connection", "close");  
     server.send(200, "text/html", OTAUpdatePage);

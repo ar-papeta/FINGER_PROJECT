@@ -38,6 +38,8 @@ void loop() {
   
   server.handleClient();
   //checkFinger(&finger_IN);
-  Serial.println(checkFinger(&finger_OUT));
+  int a = checkFinger(&finger_OUT);
+  if(a > 0)
+    Serial.println(a);
   
 }
