@@ -115,9 +115,72 @@ void ESP_WebServer_setup(void) {
     }
     else {
       Serial.println("Wrong Home page flags !!!");
-    }
-      
+    }   
   });
+
+  
+                    /*REG PAGE BLOCK*/
+  server.on("/registration", HTTP_GET, []() {
+    server.sendHeader("Connection", "close");  
+    server.send(200, "text/html", RegPage); 
+  });
+
+  server.on("/registration", HTTP_POST, []() {
+    if (server.hasArg("noreg")){
+      WiFi.mode(WIFI_AP);
+      WiFi.softAP(self_ssid, self_password);
+      isSelfConnect = '0';
+      isWiFiSTAConnect = '1';
+      EEPROM_Write(&isSelfConnect, 1, EEPROM_SELF_CONN_FLAG_ADDR);
+      EEPROM_Write(&isWiFiSTAConnect, 1, EEPROM_EX_WIFI_FLAG_ADDR);
+      Serial.println("Offline mode activated");
+      Serial.print("IP address: ");   
+      Serial.println(WiFi.softAPIP());
+      server.sendHeader("Connection", "close");  
+      server.send(200, "text/html", HomePage);
+    }
+
+    if (server.hasArg("psw") && server.hasArg("ssid")) {
+      strcpy(wifi_SSID, server.arg("ssid").c_str());
+      strcpy(wifi_password, server.arg("psw").c_str());
+      int tryCount = 0;
+      WiFi.begin(wifi_SSID, wifi_password);
+      while(WiFi.status() != WL_CONNECTED){
+        tryCount++;
+        delay(500);
+        Serial.print(".");
+        if(tryCount == 15){
+          Serial.println("Something wrong with WiFi. 15 connection attempts faild");
+          break;
+        }
+        
+      }
+      if(tryCount < 15){
+        isSelfConnect = '0';
+        isWiFiSTAConnect = '1';
+        EEPROM_Write(&isSelfConnect, 1, EEPROM_SELF_CONN_FLAG_ADDR);
+        EEPROM_Write(&isWiFiSTAConnect, 1, EEPROM_EX_WIFI_FLAG_ADDR);
+        
+        EEPROM_Write(wifi_SSID, EEPROM_SIZE_SSID, SSID_START_ADDR);
+        EEPROM_Write(wifi_password, EEPROM_SIZE_PASSWORD, PASSWORD_START_ADDR);
+        server.sendHeader("Connection", "close");  
+        server.send(200, "text/html", HomePage);
+        ESP.restart();
+      }
+      else {
+        WiFi.mode(WIFI_AP);
+        WiFi.softAP(self_ssid, self_password);
+        server.sendHeader("Connection", "close");  
+        server.send(200, "text/html", RegPage);
+      }
+      Serial.println(server.arg("psw"));
+      Serial.println(server.arg("ssid"));
+    }
+  });
+
+
+
+
 
                     /*ADD USER BLOCK*/
   server.on("/addUser", HTTP_GET, []() {
