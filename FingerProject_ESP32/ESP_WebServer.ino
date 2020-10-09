@@ -35,17 +35,18 @@ void ESP_WebServer_setup(void) {
     WiFi.mode(WIFI_STA);
     WiFi.begin(wifi_SSID, wifi_password);
     while (WiFi.status() != WL_CONNECTED) {
+      tryCount ++;
       delay(500);
       Serial.print(".");
       if(tryCount == 15){
-          Serial.println("Something wrong with WiFi. 15 connection attempts faild");
+          Serial.println("Something wrong with WiFi. 15 connection attempts faild. Starting self AP...");
+          WiFi.mode(WIFI_AP);
+          WiFi.softAP(self_ssid, self_password);
           break;
       }
-      else{
-        Serial.println("IP address: ");  //  "IP-адрес: "
-        Serial.println(WiFi.localIP());
-      }
     }
+    Serial.println("IP address: ");  //  "IP-адрес: "
+    Serial.println(WiFi.localIP());
   }
 
   /*use mdns for host name resolution*/

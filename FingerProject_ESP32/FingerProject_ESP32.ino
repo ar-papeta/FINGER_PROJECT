@@ -22,9 +22,9 @@ void setup() {
   
   Serial.begin(57600);
   //Serial1.begin(57600,SERIAL_8N1, 2, 4); //Baud rate, parity mode, RX, TX
-  Serial2.begin(57600);
+  Serial2.begin(115200);
   
-  FingerSensor_init(&finger_IN);
+  //FingerSensor_init(&finger_IN);
   FingerSensor_init(&finger_OUT);
   EEPROM_init();
   delay(100);
@@ -39,7 +39,7 @@ void loop() {
   server.handleClient();
   //checkFinger(&finger_IN);
   int a = checkFinger(&finger_OUT);
-  if(a > 0)
+  //if(a > 0)
     Serial.println(a);
   
 }

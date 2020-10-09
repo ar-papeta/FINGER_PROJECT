@@ -1,6 +1,6 @@
 void FingerSensor_init(Adafruit_Fingerprint *f_Sensor) {
   // set the data rate for the sensor serial port
-  f_Sensor->begin(57600);
+  f_Sensor->begin(115200);
   if (f_Sensor->verifyPassword()) 
   {
     Serial.println("Found fingerprint sensor!");
@@ -150,7 +150,7 @@ bool addFinger(Adafruit_Fingerprint *f_Sensor, uint8_t id) {
 
   f_status = f_Sensor->storeModel(id);
   if (f_status == FINGERPRINT_OK) {
-    //Serial.println("Personal finger stored!");
+    Serial.println("Personal finger stored!");
     return true;
   } else if (f_status == FINGERPRINT_PACKETRECIEVEERR) {
     //Serial.println("Communication error");
