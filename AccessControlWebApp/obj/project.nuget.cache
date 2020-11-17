@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "sZUGvXdSN4zSYNNd6vKm/RCoR8ZVyXEIPdDCYKRE9/En3r4bPUcGKW6UTqXc5Shsqr3/e6TA5SXIunBktFmZiw==",
+  "dgSpecHash": "kRYCFAP4i282tYqisqlOkhNMii7bxMoOrZI+EATDPy+JqksFK38gm6uIPwbJCR67qPFHPiAQvQQD5zR5n9tWxA==",
   "success": true,
   "projectFilePath": "F:\\FINGER_PROJECT\\FINGER_PROJECT\\AccessControlWebApp\\AccessControlWebApp.csproj",
   "expectedPackageFiles": [
@@ -126,7 +126,9 @@
     "C:\\Users\\Artem Papeta\\.nuget\\packages\\system.net.http\\4.3.0\\system.net.http.4.3.0.nupkg.sha512",
     "C:\\Users\\Artem Papeta\\.nuget\\packages\\system.net.nameresolution\\4.3.0\\system.net.nameresolution.4.3.0.nupkg.sha512",
     "C:\\Users\\Artem Papeta\\.nuget\\packages\\system.net.primitives\\4.3.0\\system.net.primitives.4.3.0.nupkg.sha512",
+    "C:\\Users\\Artem Papeta\\.nuget\\packages\\system.net.requests\\4.3.0\\system.net.requests.4.3.0.nupkg.sha512",
     "C:\\Users\\Artem Papeta\\.nuget\\packages\\system.net.sockets\\4.3.0\\system.net.sockets.4.3.0.nupkg.sha512",
+    "C:\\Users\\Artem Papeta\\.nuget\\packages\\system.net.webheadercollection\\4.3.0\\system.net.webheadercollection.4.3.0.nupkg.sha512",
     "C:\\Users\\Artem Papeta\\.nuget\\packages\\system.objectmodel\\4.3.0\\system.objectmodel.4.3.0.nupkg.sha512",
     "C:\\Users\\Artem Papeta\\.nuget\\packages\\system.private.datacontractserialization\\4.3.0\\system.private.datacontractserialization.4.3.0.nupkg.sha512",
     "C:\\Users\\Artem Papeta\\.nuget\\packages\\system.reflection\\4.3.0\\system.reflection.4.3.0.nupkg.sha512",
@@ -174,7 +176,8 @@
     "C:\\Users\\Artem Papeta\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\Artem Papeta\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Artem Papeta\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\Artem Papeta\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    "C:\\Users\\Artem Papeta\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
+    "C:\\Users\\Artem Papeta\\.nuget\\packages\\telegram.bot\\15.7.1\\telegram.bot.15.7.1.nupkg.sha512"
   ],
   "logs": []
 }

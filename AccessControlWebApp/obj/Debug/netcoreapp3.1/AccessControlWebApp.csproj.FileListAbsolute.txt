@@ -436,6 +436,3 @@ F:\FINGER_PROJECT\FINGER_PROJECT\AccessControlWebApp\bin\Debug\netcoreapp3.1\ru\
 F:\FINGER_PROJECT\FINGER_PROJECT\AccessControlWebApp\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 F:\FINGER_PROJECT\FINGER_PROJECT\AccessControlWebApp\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 F:\FINGER_PROJECT\FINGER_PROJECT\AccessControlWebApp\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-F:\FINGER_PROJECT\FINGER_PROJECT\AccessControlWebApp\obj\Debug\netcoreapp3.1\AccessControlWebApp.csproj.CoreCompileInputs.cache
-F:\FINGER_PROJECT\FINGER_PROJECT\AccessControlWebApp\obj\Debug\netcoreapp3.1\AccessControlWebApp.MvcApplicationPartsAssemblyInfo.cs
-F:\FINGER_PROJECT\FINGER_PROJECT\AccessControlWebApp\obj\Debug\netcoreapp3.1\AccessControlWebApp.MvcApplicationPartsAssemblyInfo.cache
